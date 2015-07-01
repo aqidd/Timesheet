@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.Locale;
 
@@ -72,6 +73,7 @@ public class HomeActivity extends ActionBarActivity implements ActionBar.TabList
             @Override
             public void onPageSelected(int position) {
                 actionBar.setSelectedNavigationItem(position);
+                mSectionsPagerAdapter.saveState();
             }
         });
 
@@ -104,7 +106,12 @@ public class HomeActivity extends ActionBarActivity implements ActionBar.TabList
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_search) {
+            Toast.makeText(this, "SEARCHED", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        else if (id == R.id.action_logout) {
+            Toast.makeText(this,"LOGGED OUT",Toast.LENGTH_SHORT).show();
             return true;
         }
 

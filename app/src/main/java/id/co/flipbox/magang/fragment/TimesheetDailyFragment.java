@@ -18,8 +18,8 @@ import java.sql.Time;
 import java.util.ArrayList;
 
 import id.co.flipbox.magang.R;
-import id.co.flipbox.magang.activity.AddActivity;
-import id.co.flipbox.magang.activity.DetailsActivity;
+import id.co.flipbox.magang.activity.AddTsActivity;
+import id.co.flipbox.magang.activity.DetailsTsActivity;
 import id.co.flipbox.magang.adapter.TsDailyAdapter;
 import id.co.flipbox.magang.objects.Project;
 import id.co.flipbox.magang.objects.Timesheet;
@@ -89,11 +89,11 @@ public class TimesheetDailyFragment extends Fragment {
 
         // Populate by dummy data
         User me = new User(1,"a@a.com","thelaw","Ahmad Dhani","Bos","00","Majaer",null);
-        Project mine = new Project(1,"Republik");
-        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
-        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
-        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
-        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
+        Project mine = new Project(1,"JKT48 Banyak Rasa");
+        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan! (1)", "H", "OK", me, new Project(1,"JKT48 Banyak Rasa")));
+        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan! (2)", "C", "OK", me, new Project(1,"JKT48 Banyak Rasa - Duren")));
+        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, new Project(1,"JKT48 Banyak Rasa - Lemon")));
+        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, new Project(1,"JKT48 Banyak Rasa - Melon")));
         arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
         arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
         arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
@@ -108,13 +108,19 @@ public class TimesheetDailyFragment extends Fragment {
         TsDailyAdapter adapter = new TsDailyAdapter(getActivity(),arr);
         list.setAdapter(adapter);
 
-        // Set listener for each row (later boyz)
+        // Set listener for each row
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Timesheet clickedDetail = (Timesheet) parent.getItemAtPosition(position);
-                Intent intent = new Intent(getActivity(), DetailsActivity.class);
-                intent.putExtra("detailType", 1);
+                Intent intent = new Intent(getActivity(), DetailsTsActivity.class);
+                intent.putExtra("detailType",1);
+                intent.putExtra("ts_date", ""+clickedDetail.getTanggal());
+                intent.putExtra("ts_duration", clickedDetail.getMulai()+" - "+clickedDetail.getSelesai());
+                intent.putExtra("ts_status", clickedDetail.getIsian());
+                intent.putExtra("ts_desc", clickedDetail.getDesc());
+                intent.putExtra("ts_project", clickedDetail.getProyek().toString());
+                intent.putExtra("ts_absent", clickedDetail.getAbsensi());
                 startActivity(intent);
             }
         });
@@ -124,7 +130,7 @@ public class TimesheetDailyFragment extends Fragment {
         adder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), AddActivity.class);
+                Intent intent = new Intent(getActivity(), AddTsActivity.class);
                 intent.putExtra("addType",1);
                 startActivity(intent);
             }

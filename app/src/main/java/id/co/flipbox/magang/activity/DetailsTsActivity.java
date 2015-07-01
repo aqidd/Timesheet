@@ -18,10 +18,11 @@ import id.co.flipbox.magang.fragment.DetailsTimesheetFragment;
 
 /**
  * Activity for knowing details of a list element
+ * Specially made so it can have different parent (because it's accessed not via home activity
  *
  */
 
-public class DetailsActivity extends ActionBarActivity implements DetailsLeaveFragment.OnFragmentInteractionListener, DetailsOvertimeFragment.OnFragmentInteractionListener, DetailsTimesheetFragment.OnFragmentInteractionListener {
+public class DetailsTsActivity extends ActionBarActivity implements DetailsLeaveFragment.OnFragmentInteractionListener, DetailsOvertimeFragment.OnFragmentInteractionListener, DetailsTimesheetFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +68,7 @@ public class DetailsActivity extends ActionBarActivity implements DetailsLeaveFr
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        //if (id == 0) {
-        //    Toast.makeText(this, "CONFIRMED", Toast.LENGTH_SHORT);
+        //if (id == R.id.action_settings) {
         //    return true;
         //}
 

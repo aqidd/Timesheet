@@ -3,12 +3,14 @@ package id.co.flipbox.magang.activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import id.co.flipbox.magang.R;
 import id.co.flipbox.magang.fragment.TimesheetDailyFragment;
@@ -24,6 +26,8 @@ public class TimesheetDailyActivity extends ActionBarActivity implements Timeshe
                     .add(R.id.container, new TimesheetDailyFragment())
                     .commit();
         }
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
 
@@ -42,7 +46,12 @@ public class TimesheetDailyActivity extends ActionBarActivity implements Timeshe
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_search) {
+            Toast.makeText(this, "SEARCHED", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        else if (id == R.id.action_logout) {
+            Toast.makeText(this,"LOGGED OUT",Toast.LENGTH_SHORT).show();
             return true;
         }
 

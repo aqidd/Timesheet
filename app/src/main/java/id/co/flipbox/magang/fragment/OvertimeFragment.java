@@ -88,10 +88,10 @@ public class OvertimeFragment extends Fragment {
 
         // Populate by dummy data
         User me = new User(1,"a@a.com","thelaw","Ahmad Dhani","Bos","00","Majaer",null);
-        arr.add(new Overtime(1, "Nonton Theater JKT48", new Time(14,0,0), new Time(16,0,0), me, new Date(2015,6,30)));
-        arr.add(new Overtime(1, "Nonton Theater JKT48", new Time(14,0,0), new Time(16,0,0), me, new Date(2015,6,30)));
-        arr.add(new Overtime(1, "Nonton Theater JKT48", new Time(14,0,0), new Time(16,0,0), me, new Date(2015,6,30)));
-        arr.add(new Overtime(1, "Nonton Theater JKT48", new Time(14,0,0), new Time(16,0,0), me, new Date(2015,6,30)));
+        arr.add(new Overtime(1, "Nonton Theater JKT48 Boku no Taiyou", new Time(14,0,0), new Time(16,0,0), me, new Date(2015,6,30)));
+        arr.add(new Overtime(1, "Nonton Theater JKT48 Renai Kinshi Jourei", new Time(14,0,0), new Time(16,0,0), me, new Date(2015,6,30)));
+        arr.add(new Overtime(1, "Nonton Theater JKT48 Theater no Megami", new Time(14,0,0), new Time(16,0,0), me, new Date(2015,6,30)));
+        arr.add(new Overtime(1, "Nonton Theater JKT48 Bang Bokir", new Time(14,0,0), new Time(16,0,0), me, new Date(2015,6,30)));
         arr.add(new Overtime(1, "Nonton Theater JKT48", new Time(14,0,0), new Time(16,0,0), me, new Date(2015,6,30)));
         arr.add(new Overtime(1, "Nonton Theater JKT48", new Time(14,0,0), new Time(16,0,0), me, new Date(2015,6,30)));
         arr.add(new Overtime(1, "Nonton Theater JKT48", new Time(14,0,0), new Time(16,0,0), me, new Date(2015,6,30)));
@@ -106,13 +106,17 @@ public class OvertimeFragment extends Fragment {
         OtAdapter adapter = new OtAdapter(getActivity(),arr);
         list.setAdapter(adapter);
 
-        // Set listener for each row (later boyz)
+        // Set listener for each row
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Overtime clickedDetail = (Overtime) parent.getItemAtPosition(position);
                 Intent intent = new Intent(getActivity(), DetailsActivity.class);
                 intent.putExtra("detailType",2);
+                intent.putExtra("ot_date", ""+clickedDetail.getTanggal());
+                intent.putExtra("ot_duration", clickedDetail.getMulai()+" - "+clickedDetail.getSelesai());
+                intent.putExtra("ot_status", clickedDetail.getStatus());
+                intent.putExtra("ot_desc", clickedDetail.getDesc());
                 startActivity(intent);
             }
         });

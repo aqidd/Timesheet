@@ -7,43 +7,50 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import id.co.flipbox.magang.R;
 
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link DetailsTimesheetFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link DetailsTimesheetFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * A Fragment which represents the "Leave Details" view
  */
-public class DetailsTimesheetFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+public class DetailsTimesheetFragment extends Fragment {
+    private View myFragmentView;
+
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "ot_date";
+    private static final String ARG_PARAM2 = "ot_duration";
+    private static final String ARG_PARAM3 = "ot_project";
+    private static final String ARG_PARAM4 = "ot_status";
+    private static final String ARG_PARAM5 = "ot_absent";
+    private static final String ARG_PARAM6 = "ot_desc";
+
+    private String date,duration,status,desc,absent,project;
 
     private OnFragmentInteractionListener mListener;
 
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
+     * Details of the Timesheet
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * @param date Date of Timesheet.
+     * @param duration Duration of Timesheet.
+     * @param project Project of Timesheet.
+     * @param status Timesheet Status of Timesheet.
+     * @param absent Absent Status of Timesheet..
+     * @param desc Description of Timesheet.
      * @return A new instance of fragment DetailsTimesheetFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DetailsTimesheetFragment newInstance(String param1, String param2) {
+    public static DetailsTimesheetFragment newInstance(String date, String duration, String project, String status, String absent, String desc) {
         DetailsTimesheetFragment fragment = new DetailsTimesheetFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(ARG_PARAM1, date);
+        args.putString(ARG_PARAM2, duration);
+        args.putString(ARG_PARAM3, project);
+        args.putString(ARG_PARAM4, status);
+        args.putString(ARG_PARAM5, absent);
+        args.putString(ARG_PARAM6, desc);
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,16 +63,33 @@ public class DetailsTimesheetFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            date = getArguments().getString(ARG_PARAM1);
+            duration = getArguments().getString(ARG_PARAM2);
+            project = getArguments().getString(ARG_PARAM3);
+            status = getArguments().getString(ARG_PARAM4);
+            absent = getArguments().getString(ARG_PARAM5);
+            desc = getArguments().getString(ARG_PARAM6);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        myFragmentView = inflater.inflate(R.layout.fragment_details_timesheet, container, false);
+        TextView dateField =  (TextView) myFragmentView.findViewById(R.id.detailTsDateContent);
+        dateField.setText(date);
+        TextView durationField =  (TextView) myFragmentView.findViewById(R.id.detailTsDurationContent);
+        durationField.setText(duration);
+        TextView statusField =  (TextView) myFragmentView.findViewById(R.id.detailTsStatusContent);
+        statusField.setText(status);
+        TextView descField =  (TextView) myFragmentView.findViewById(R.id.detailTsDescContent);
+        descField.setText(desc);
+        TextView absentField =  (TextView) myFragmentView.findViewById(R.id.detailTsAbsentContent);
+        absentField.setText(absent);
+        TextView projectField =  (TextView) myFragmentView.findViewById(R.id.detailTsProjectContent);
+        projectField.setText(project);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_details_timesheet, container, false);
+        return myFragmentView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

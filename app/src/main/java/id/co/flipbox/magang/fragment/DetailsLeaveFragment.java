@@ -7,43 +7,45 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import id.co.flipbox.magang.R;
 
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link DetailsLeaveFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link DetailsLeaveFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * A Fragment which represents the "Leave Details" view
  */
-public class DetailsLeaveFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+public class DetailsLeaveFragment extends Fragment {
+
+    private View myFragmentView;
+
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "leave_type";
+    private static final String ARG_PARAM2 = "leave_duration";
+    private static final String ARG_PARAM3 = "leave_status";
+    private static final String ARG_PARAM4 = "leave_desc";
+
+    private String type,duration,status,desc;
 
     private OnFragmentInteractionListener mListener;
 
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
+     * Details of the Leave
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * @param type Type of leave.
+     * @param duration Duration of leave.
+     * @param status Status of leave.
+     * @param desc Description of leave.
      * @return A new instance of fragment DetailsLeaveFragment.
      */
-    // TODO: Rename and change types and number of parameters
-    public static DetailsLeaveFragment newInstance(String param1, String param2) {
+
+    public static DetailsLeaveFragment newInstance(String type, String duration, String status, String desc) {
         DetailsLeaveFragment fragment = new DetailsLeaveFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(ARG_PARAM1, type);
+        args.putString(ARG_PARAM2, duration);
+        args.putString(ARG_PARAM3, status);
+        args.putString(ARG_PARAM4, desc);
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,16 +58,27 @@ public class DetailsLeaveFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            type = getArguments().getString(ARG_PARAM1);
+            duration = getArguments().getString(ARG_PARAM2);
+            status = getArguments().getString(ARG_PARAM3);
+            desc = getArguments().getString(ARG_PARAM4);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        myFragmentView = inflater.inflate(R.layout.fragment_details_leave, container, false);
+        TextView typeField =  (TextView) myFragmentView.findViewById(R.id.detailLeaveTypeContent);
+        typeField.setText(type);
+        TextView durationField =  (TextView) myFragmentView.findViewById(R.id.detailLeaveDurationContent);
+        durationField.setText(duration);
+        TextView statusField =  (TextView) myFragmentView.findViewById(R.id.detailLeaveStatusContent);
+        statusField.setText(status);
+        TextView descField =  (TextView) myFragmentView.findViewById(R.id.detailLeaveDescContent);
+        descField.setText(desc);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_details_leave, container, false);
+        return myFragmentView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -87,12 +87,12 @@ public class LeaveFragment extends Fragment {
 
         // Populate by dummy data
         User me = new User(1,"a@a.com","thelaw","Ahmad Dhani","Bos","00","Majaer",null);
+        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya! 1", new Date(2015,6,25), new Date(2015,6,30), me));
+        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan Lagi", "Kasihan anak saya! 2", new Date(2015,6,25), new Date(2015,6,30), me));
+        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan Terus", "Kasihan anak saya! 4", new Date(2015,6,25), new Date(2015,6,30), me));
+        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan, Bapaknya Bukan saya", "Kasihan anak saya! 5", new Date(2015,6,25), new Date(2015,6,30), me));
         arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
-        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
-        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
-        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
-        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
-        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
+        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya! 55", new Date(2015,6,25), new Date(2015,6,30), me));
         arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
         arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
         arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
@@ -104,13 +104,17 @@ public class LeaveFragment extends Fragment {
         LeaveAdapter adapter = new LeaveAdapter(getActivity(),arr);
         list.setAdapter(adapter);
 
-        // Set listener for each row (later boyz)
+        // Set listener for each row
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Leave clickedDetail = (Leave) parent.getItemAtPosition(position);
                 Intent intent = new Intent(getActivity(), DetailsActivity.class);
                 intent.putExtra("detailType", 3);
+                intent.putExtra("leave_type", clickedDetail.getJenis());
+                intent.putExtra("leave_duration", clickedDetail.getMulai()+" - "+clickedDetail.getSelesai());
+                intent.putExtra("leave_status", clickedDetail.getStatus());
+                intent.putExtra("leave_desc", clickedDetail.getDesc());
                 startActivity(intent);
             }
         });

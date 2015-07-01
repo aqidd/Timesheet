@@ -16,10 +16,11 @@ import id.co.flipbox.magang.fragment.AddTimesheetFragment;
 
 /**
  * Activity for adding a new element
+ * Specially made so it can have different parent (because it's accessed not via home activity
  *
  */
 
-public class AddActivity extends ActionBarActivity implements AddOvertimeFragment.OnFragmentInteractionListener, AddLeaveFragment.OnFragmentInteractionListener, AddTimesheetFragment.OnFragmentInteractionListener {
+public class AddTsActivity extends ActionBarActivity implements AddOvertimeFragment.OnFragmentInteractionListener, AddLeaveFragment.OnFragmentInteractionListener, AddTimesheetFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

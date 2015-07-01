@@ -18,18 +18,27 @@
         </activity>
         <activity
             android:name=".activity.DetailsActivity"
+            android:parentActivityName=".activity.HomeActivity"
             android:label="@string/title_activity_details" >
         </activity>
         <activity
-            android:name=".activity.DailyTimesheetActivity"
-            android:label="@string/title_activity_daily_timesheet" >
+            android:name=".activity.DetailsTsActivity"
+            android:parentActivityName=".activity.TimesheetDailyActivity"
+            android:label="@string/title_activity_details" >
         </activity>
         <activity
             android:name=".activity.TimesheetDailyActivity"
+            android:parentActivityName=".activity.HomeActivity"
             android:label="@string/title_activity_timesheet_daily_fragment" >
         </activity>
         <activity
             android:name=".activity.AddActivity"
+            android:parentActivityName=".activity.HomeActivity"
+            android:label="@string/title_activity_add" >
+        </activity>
+        <activity
+            android:name=".activity.AddTsActivity"
+            android:parentActivityName=".activity.TimesheetDailyActivity"
             android:label="@string/title_activity_add" >
         </activity>
     </application>
