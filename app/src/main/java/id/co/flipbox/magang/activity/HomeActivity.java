@@ -1,4 +1,4 @@
-package id.co.flipbox.magang;
+package id.co.flipbox.magang.activity;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 
 import java.util.Locale;
 
+import id.co.flipbox.magang.R;
 import id.co.flipbox.magang.fragment.DummyFragment;
 import id.co.flipbox.magang.fragment.LeaveFragment;
 import id.co.flipbox.magang.fragment.OvertimeFragment;
@@ -48,6 +49,9 @@ public class HomeActivity extends ActionBarActivity implements ActionBar.TabList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        // Set title --
+        setTitle(R.string.app_name);
 
         // Set up the action bar.
         final ActionBar actionBar = getSupportActionBar();

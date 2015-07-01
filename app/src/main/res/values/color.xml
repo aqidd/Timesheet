@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary400">#29B6F6</color>
+    <color name="primary100">#B3E5FC</color>
+    <color name="primary600">#039BE5</color>
+    <color name="accent200">#FFD740</color>
+    <color name="accent100">#FFE57F</color>
+    <color name="accent400">#FFC400</color>
+    <color name="headerText">#FFFFFF</color>
+    <color name="contentText">#000000</color>
+
+</resources>

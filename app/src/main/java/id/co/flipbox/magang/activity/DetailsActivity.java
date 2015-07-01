@@ -1,5 +1,6 @@
-package id.co.flipbox.magang;
+package id.co.flipbox.magang.activity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -9,21 +10,41 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import id.co.flipbox.magang.R;
+import id.co.flipbox.magang.fragment.DetailsLeaveFragment;
+import id.co.flipbox.magang.fragment.DetailsOvertimeFragment;
+import id.co.flipbox.magang.fragment.DetailsTimesheetFragment;
+
 /**
  * Activity for knowing details of a list element
  *
  */
 
-public class DetailsActivity extends ActionBarActivity {
+public class DetailsActivity extends ActionBarActivity implements DetailsLeaveFragment.OnFragmentInteractionListener, DetailsOvertimeFragment.OnFragmentInteractionListener, DetailsTimesheetFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
+            if (getIntent().getIntExtra("detailType",0)==1) {
+                setTitle("Timesheet Details");
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.container, new DetailsTimesheetFragment())
+                        .commit();
+            }
+            else if (getIntent().getIntExtra("detailType",0)==2) {
+                setTitle("Overtime Details");
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.container, new DetailsOvertimeFragment())
+                        .commit();
+            }
+            else if (getIntent().getIntExtra("detailType",0)==3) {
+                setTitle("Leave Details");
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.container, new DetailsLeaveFragment())
+                        .commit();
+            }
         }
     }
 
@@ -50,6 +71,11 @@ public class DetailsActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -61,7 +87,8 @@ public class DetailsActivity extends ActionBarActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_details, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_add_timesheet, container, false);
+            getActivity().setTitle("Add Leave");
             return rootView;
         }
     }

@@ -5,34 +5,34 @@
     android:paddingBottom="10dp">
 
     <TextView
-        android:id="@+id/leaveDate"
+        android:id="@+id/tsdailyProject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:textSize="16sp"
         android:textStyle="bold"
         android:layout_marginBottom="4dp"
-        android:text="Jun 25 - Jun 28"/>
+        android:text="JKT Banyak Rasa Pilih Suka Rasa Apa"/>
     <TextView
-        android:id="@+id/leaveType"
+        android:id="@+id/tsdailyHours"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_below="@id/leaveDate"
+        android:layout_below="@id/tsdailyProject"
         android:textSize="10sp"
-        android:text="Paid Personal Leave: Anak Sunatan"/>
+        android:text="12.00 - 13.00"/>
     <TextView
-        android:id="@+id/leaveDuration"
+        android:id="@+id/tsdailyDuration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
         android:layout_alignParentRight="true"
-        android:layout_alignBaseline="@id/leaveDate"
+        android:layout_alignBaseline="@id/tsdailyProject"
         android:textSize="16sp"
         android:textStyle="bold"
         android:layout_marginBottom="4dp"
-        android:text="2d"/>
+        android:text="2h"/>
 
 
 </RelativeLayout>

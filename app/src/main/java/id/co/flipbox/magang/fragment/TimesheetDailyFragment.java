@@ -2,10 +2,9 @@ package id.co.flipbox.magang.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-//import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,24 +14,27 @@ import android.widget.ListView;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.util.ArrayList;
 
 import id.co.flipbox.magang.R;
 import id.co.flipbox.magang.activity.AddActivity;
 import id.co.flipbox.magang.activity.DetailsActivity;
-import id.co.flipbox.magang.adapter.LeaveAdapter;
-import id.co.flipbox.magang.objects.Leave;
+import id.co.flipbox.magang.adapter.TsDailyAdapter;
+import id.co.flipbox.magang.objects.Project;
+import id.co.flipbox.magang.objects.Timesheet;
 import id.co.flipbox.magang.objects.User;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link LeaveFragment.OnFragmentInteractionListener} interface
+ * {@link TimesheetDailyFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link LeaveFragment#newInstance} factory method to
+ * Use the {@link TimesheetDailyFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class LeaveFragment extends Fragment {
+public class TimesheetDailyFragment extends Fragment {
+
     private View myFragmentView;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -52,11 +54,11 @@ public class LeaveFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment LeaveFragment.
+     * @return A new instance of fragment TimesheetDailyFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static LeaveFragment newInstance(String param1, String param2) {
-        LeaveFragment fragment = new LeaveFragment();
+    public static TimesheetDailyFragment newInstance(String param1, String param2) {
+        TimesheetDailyFragment fragment = new TimesheetDailyFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,7 +66,7 @@ public class LeaveFragment extends Fragment {
         return fragment;
     }
 
-    public LeaveFragment() {
+    public TimesheetDailyFragment() {
         // Required empty public constructor
     }
 
@@ -80,48 +82,50 @@ public class LeaveFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        myFragmentView = inflater.inflate(R.layout.fragment_leave, container, false);
+        myFragmentView = inflater.inflate(R.layout.fragment_timesheet_daily, container, false);
 
-        // Populate list of Leave
-        ArrayList<Leave> arr = new ArrayList<>();
+        // Populate list of Timesheet (by month)
+        ArrayList<Timesheet> arr = new ArrayList<>();
 
         // Populate by dummy data
         User me = new User(1,"a@a.com","thelaw","Ahmad Dhani","Bos","00","Majaer",null);
-        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
-        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
-        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
-        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
-        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
-        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
-        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
-        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
-        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
-        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
-        arr.add(new Leave(1, "Paid Personal Leave: Istri Melahirkan", "Kasihan anak saya!", new Date(2015,6,25), new Date(2015,6,30), me));
+        Project mine = new Project(1,"Republik");
+        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
+        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
+        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
+        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
+        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
+        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
+        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
+        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
+        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
+        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
+        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
+        arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
 
         // Create list view
-        ListView list = (ListView) myFragmentView.findViewById(R.id.leaveList);
-        LeaveAdapter adapter = new LeaveAdapter(getActivity(),arr);
+        ListView list = (ListView) myFragmentView.findViewById(R.id.tsdailyList);
+        TsDailyAdapter adapter = new TsDailyAdapter(getActivity(),arr);
         list.setAdapter(adapter);
 
         // Set listener for each row (later boyz)
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Leave clickedDetail = (Leave) parent.getItemAtPosition(position);
+                Timesheet clickedDetail = (Timesheet) parent.getItemAtPosition(position);
                 Intent intent = new Intent(getActivity(), DetailsActivity.class);
-                intent.putExtra("detailType", 3);
+                intent.putExtra("detailType", 1);
                 startActivity(intent);
             }
         });
 
         // Create add FAB
-        FloatingActionButton adder = (FloatingActionButton) myFragmentView.findViewById(R.id.leaveAdder);
+        FloatingActionButton adder = (FloatingActionButton) myFragmentView.findViewById(R.id.tsdailyAdder);
         adder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), AddActivity.class);
-                intent.putExtra("addType",3);
+                intent.putExtra("addType",1);
                 startActivity(intent);
             }
         });

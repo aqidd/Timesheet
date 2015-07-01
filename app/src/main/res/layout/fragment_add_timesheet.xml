@@ -1,0 +1,150 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    tools:context="id.co.flipbox.magang.fragment.AddTimesheetFragment">
+
+    <RelativeLayout
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/addTsDateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginBottom="7dp"
+            android:text="Date"/>
+
+        <EditText
+            android:id="@+id/addTsDateForm"
+            android:text="Default: today"
+            android:layout_width="match_parent"
+            android:layout_below="@id/addTsDateLabel"
+            android:textSize="14sp"
+            android:layout_marginBottom="7dp"
+            android:focusable="false"
+            android:clickable="true"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/addTsProjectLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp"
+            android:layout_below="@id/addTsDateForm"
+            android:text="Project"/>
+
+        <Spinner
+            android:id="@+id/addTsProjectForm"
+            android:layout_width="match_parent"
+            android:layout_below="@id/addTsProjectLabel"
+            android:entries="@array/possible_month"
+            android:layout_marginBottom="7dp"
+            android:textSize="14sp"
+            android:layout_height="wrap_content"></Spinner>
+
+        <TextView
+            android:id="@+id/addTsStatusLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp"
+            android:layout_below="@id/addTsProjectForm"
+            android:text="Status"/>
+
+        <Spinner
+            android:id="@+id/addTsStatusForm"
+            android:layout_width="match_parent"
+            android:layout_below="@id/addTsStatusLabel"
+            android:entries="@array/timesheet_status"
+            android:layout_marginBottom="7dp"
+            android:textSize="14sp"
+            android:layout_height="wrap_content"></Spinner>
+
+        <TextView
+            android:id="@+id/addTsDescLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addTsStatusForm"
+            android:textSize="14sp"
+            android:layout_marginBottom="7dp"
+            android:text="Description"/>
+
+        <EditText
+            android:id="@+id/addTsDescForm"
+            android:layout_width="match_parent"
+            android:layout_below="@id/addTsDescLabel"
+            android:textSize="14sp"
+            android:layout_marginBottom="7dp"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/addTsTimeLabelHandler"
+            android:layout_width="match_parent"
+            android:layout_below="@id/addTsDescForm"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/addTsStartLabel"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_weight="1"
+                android:layout_marginBottom="7dp"
+                android:text="Start"/>
+
+            <TextView
+                android:id="@+id/addTsEndLabel"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_weight="1"
+                android:layout_marginBottom="7dp"
+                android:text="End"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/addTsTimeFormHandler"
+            android:layout_width="match_parent"
+            android:layout_below="@id/addTsTimeLabelHandler"
+            android:layout_marginBottom="7dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/addTsStartForm"
+                android:text="@string/select_time"
+                android:layout_width="fill_parent"
+                android:textSize="14sp"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:focusable="false"
+                android:clickable="true"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/addTsEndForm"
+                android:text="@string/select_time"
+                android:layout_width="fill_parent"
+                android:textSize="14sp"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:focusable="false"
+                android:clickable="true"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>
+
+

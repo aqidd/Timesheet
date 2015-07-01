@@ -1,6 +1,7 @@
 package id.co.flipbox.magang.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,7 +11,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
+
+import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -18,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import id.co.flipbox.magang.R;
+import id.co.flipbox.magang.activity.AddActivity;
+import id.co.flipbox.magang.activity.TimesheetDailyActivity;
 import id.co.flipbox.magang.adapter.TsMonthAdapter;
 import id.co.flipbox.magang.objects.Project;
 import id.co.flipbox.magang.objects.Timesheet;
@@ -88,7 +92,7 @@ public class TimesheetFragment extends Fragment {
         ArrayList<Timesheet> arr = new ArrayList<>();
 
         // Populate by dummy data
-        User me = new User(1,"a@a.com","thelaw","Ahmad Dhani","Bos","00","Majaer");
+        User me = new User(1,"a@a.com","thelaw","Ahmad Dhani","Bos","00","Majaer",null);
         Project mine = new Project(1,"Republik");
         arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
         arr.add(new Timesheet(1, new Date(2015,6,25), new Time(14,0,0), new Time(16,0,0), "Magang gan!", "H", "OK", me, mine));
@@ -108,6 +112,23 @@ public class TimesheetFragment extends Fragment {
         TsMonthAdapter adapter = new TsMonthAdapter(getActivity(),arr);
         list.setAdapter(adapter);
 
+        // Set listener for each row (later boyz)
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Timesheet clickedDetail = (Timesheet) parent.getItemAtPosition(position);
+//                AcaraFragment fragment = new AcaraFragment();
+//                fragment.setAcara(clickedDetail);
+//                MainActivity mainAct = (MainActivity) getActivity();
+//                mainAct.goToFragment(fragment,clickedDetail.getNama());
+                Intent intent = new Intent(getActivity(), TimesheetDailyActivity.class);
+                //intent.putExtra("currentOvertime", clickedDetail);
+                Bundle extras = new Bundle();
+                //extras.putSerializable("current",clickedDetail);
+                startActivity(intent);
+            }
+        });
+
         // Create and populate spinners
         final Spinner month = (Spinner) myFragmentView.findViewById(R.id.tsmonthMonthPicker);
         final Spinner year = (Spinner) myFragmentView.findViewById(R.id.tsmonthYearPicker);
@@ -118,26 +139,36 @@ public class TimesheetFragment extends Fragment {
         month.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(), month.getSelectedItem() + " " + year.getSelectedItem(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), month.getSelectedItem() + " " + year.getSelectedItem(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(getActivity(), "NOTHINGNESSs", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "NOTHINGNESSs", Toast.LENGTH_SHORT).show();
             }
         });
         year.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(), month.getSelectedItem() + " " + year.getSelectedItem(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), month.getSelectedItem() + " " + year.getSelectedItem(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(getActivity(), "NOTHINGNESSs", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "NOTHINGNESSs", Toast.LENGTH_SHORT).show();
             }
         });
 
+        // Create add FAB
+        FloatingActionButton adder = (FloatingActionButton) myFragmentView.findViewById(R.id.tsmonthAdder);
+        adder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AddActivity.class);
+                intent.putExtra("addType",1);
+                startActivity(intent);
+            }
+        });
 
 
         // Inflate the layout for this fragment

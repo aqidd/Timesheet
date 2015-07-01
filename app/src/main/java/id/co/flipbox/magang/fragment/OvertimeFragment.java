@@ -11,12 +11,15 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
+
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 
-import id.co.flipbox.magang.DetailsActivity;
 import id.co.flipbox.magang.R;
+import id.co.flipbox.magang.activity.AddActivity;
+import id.co.flipbox.magang.activity.DetailsActivity;
 import id.co.flipbox.magang.adapter.OtAdapter;
 import id.co.flipbox.magang.objects.Overtime;
 import id.co.flipbox.magang.objects.User;
@@ -84,7 +87,7 @@ public class OvertimeFragment extends Fragment {
         ArrayList<Overtime> arr = new ArrayList<>();
 
         // Populate by dummy data
-        User me = new User(1,"a@a.com","thelaw","Ahmad Dhani","Bos","00","Majaer");
+        User me = new User(1,"a@a.com","thelaw","Ahmad Dhani","Bos","00","Majaer",null);
         arr.add(new Overtime(1, "Nonton Theater JKT48", new Time(14,0,0), new Time(16,0,0), me, new Date(2015,6,30)));
         arr.add(new Overtime(1, "Nonton Theater JKT48", new Time(14,0,0), new Time(16,0,0), me, new Date(2015,6,30)));
         arr.add(new Overtime(1, "Nonton Theater JKT48", new Time(14,0,0), new Time(16,0,0), me, new Date(2015,6,30)));
@@ -108,16 +111,19 @@ public class OvertimeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Overtime clickedDetail = (Overtime) parent.getItemAtPosition(position);
-//                AcaraFragment fragment = new AcaraFragment();
-//                fragment.setAcara(clickedDetail);
-//                MainActivity mainAct = (MainActivity) getActivity();
-//                mainAct.goToFragment(fragment,clickedDetail.getNama());
                 Intent intent = new Intent(getActivity(), DetailsActivity.class);
-                //intent.putExtra("currentOvertime", clickedDetail);
-                Bundle extras = new Bundle();
-                //extras.putSerializable("current",clickedDetail);
-                intent.putExtras(extras);
-                intent.putExtra("frameType",1);
+                intent.putExtra("detailType",2);
+                startActivity(intent);
+            }
+        });
+
+        // Create add FAB
+        FloatingActionButton adder = (FloatingActionButton) myFragmentView.findViewById(R.id.otAdder);
+        adder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AddActivity.class);
+                intent.putExtra("addType",2);
                 startActivity(intent);
             }
         });

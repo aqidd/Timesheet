@@ -1,6 +1,7 @@
 package id.co.flipbox.magang.objects;
 
 
+import java.util.ArrayList;
 
 /**
  * Created by Taufik on 25 Jun 2015.
@@ -8,8 +9,9 @@ package id.co.flipbox.magang.objects;
 public class User {
     private int nip, denda;
     private String email, username, nama, jabatan, telp, role;
+    private ArrayList<Project> projects;
 
-    public User(int nip, String email, String username, String nama, String jabatan, String telp, String role) {
+    public User(int nip, String email, String username, String nama, String jabatan, String telp, String role, ArrayList<Project> projects) {
         this.nip = nip;
         this.email = email;
         this.username = username;
@@ -17,6 +19,7 @@ public class User {
         this.jabatan = jabatan;
         this.telp = telp;
         this.role = role;
+        this.projects = projects;
         denda = 0;
     }
 }

@@ -1,14 +1,31 @@
 <resources>
-    <string name="app_name">Magang</string>
+    <string name="app_name">Saka Digital - Forms</string>
 
 
     <string name="title_section1">Timesheet</string>
     <string name="title_section2">Overtime</string>
     <string name="title_section3">Leave</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="select_date">Select date...</string>
+    <string name="select_time">Select time...</string>
 
     <string name="action_settings">Settings</string>
+
+    <string-array name="leave_type">
+        <item>Annual Leave (Cuti Tahunan)</item>
+        <item>Additional Leave (Cuti Tambahan)</item>
+        <item>Unpaid Leave (Cuti Tidak Dibayar / Cuti Potong Gaji)</item>
+        <item>Paid Personal Leave: Karyawan Menikah</item>
+        <item>Paid Personal Leave: Anak Menikah</item>
+        <item>Paid Personal Leave: Kematian Suami/Istri, Orang Tua, Anak, Mertua</item>
+        <item>Paid Personal Leave: Kematian Saudara</item>
+        <item>Paid Personal Leave: Istri Melahirkan</item>
+        <item>Paid Personal Leave: Anak Sunatan</item>
+        <item>Paid Personal Leave: Pembaptisan</item>
+        <item>Paid Personal Leave: Cuti Melahirkan</item>
+        <item>Paid Personal Leave: Ibadah Haji</item>
+        <item>Paid Personal Leave: Other(Lain-lain)</item>
+    </string-array>
 
     <string-array name="possible_month">
         <item>January</item>
@@ -31,7 +48,19 @@
         <item>2017</item>
     </string-array>
 
+    <string-array name="timesheet_status">
+        <item>Hadir</item>
+        <item>Sakit</item>
+        <item>Work from Home</item>
+        <item>Dinas Luar</item>
+    </string-array>
+
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_details">DetailsActivity</string>
+    <string name="title_activity_daily_timesheet">DailyTimesheetActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_timesheet_daily_fragment">TimesheetDailyFragment</string>
+    <string name="title_activity_add">AddActivity</string>
 </resources>

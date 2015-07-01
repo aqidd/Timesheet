@@ -1,0 +1,128 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    tools:context="id.co.flipbox.magang.fragment.DetailsTimesheetFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/detailTsDateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="7dp"
+            android:text="Date"/>
+
+        <TextView
+            android:id="@+id/detailTsDateContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detailTsDateLabel"
+            android:textSize="16sp"
+            android:layout_marginBottom="7dp"
+            android:text="January 1 1970"/>
+
+        <TextView
+            android:id="@+id/detailTsDurationLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detailTsDateContent"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="7dp"
+            android:text="Duration"/>
+
+        <TextView
+            android:id="@+id/detailTsDurationContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detailTsDurationLabel"
+            android:textSize="16sp"
+            android:layout_marginBottom="7dp"
+            android:text="09.00 - 17.00 (2h)"/>
+
+        <TextView
+            android:id="@+id/detailTsProjectLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detailTsDurationContent"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="7dp"
+            android:text="Project"/>
+
+        <TextView
+            android:id="@+id/detailTsProjectContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detailTsProjectLabel"
+            android:textSize="16sp"
+            android:layout_marginBottom="7dp"
+            android:text="JKT Banyak Rasa Pilih Suka Rasa Apa"/>
+
+        <TextView
+            android:id="@+id/detailTsStatusLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detailTsProjectContent"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="7dp"
+            android:text="Timesheet Status"/>
+
+        <TextView
+            android:id="@+id/detailTsStatusContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detailTsStatusLabel"
+            android:textSize="16sp"
+            android:layout_marginBottom="7dp"
+            android:text="On-Time"/>
+
+        <TextView
+            android:id="@+id/detailTsAbsentLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detailTsStatusContent"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="7dp"
+            android:text="Absent Status"/>
+
+        <TextView
+            android:id="@+id/detailTsAbsentContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detailTsAbsentLabel"
+            android:textSize="16sp"
+            android:layout_marginBottom="17dp"
+            android:text="Hadir"/>
+
+        <TextView
+            android:id="@+id/detailTsDescLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detailTsAbsentContent"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="7dp"
+            android:text="Description"/>
+
+        <TextView
+            android:id="@+id/detailTsDescContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detailTsDescLabel"
+            android:textSize="16sp"
+            android:layout_marginBottom="7dp"
+            android:text="Abis makan. Tadi pas jam buka puasa entah kenapa perutnya gak bisa makan banyak. Makanya laper lagi ?"/>
+    </RelativeLayout>
+
+</ScrollView>
