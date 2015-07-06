@@ -49,6 +49,7 @@ public class DetailsActivity extends ActionBarActivity implements DetailsLeaveFr
         }
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setElevation(0);
     }
 
 

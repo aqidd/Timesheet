@@ -9,4 +9,9 @@
     <color name="headerText">#FFFFFF</color>
     <color name="contentText">#000000</color>
 
+    <color name="text_main">#525252</color>
+    <color name="text_secondary">#727272</color>
+    <color name="text_disabled">#a7a7a7</color>
+    <color name="text_dividers">#DADADA</color>
+
 </resources>

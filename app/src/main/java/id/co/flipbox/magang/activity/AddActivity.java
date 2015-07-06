@@ -2,12 +2,11 @@ package id.co.flipbox.magang.activity;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import id.co.flipbox.magang.R;
 import id.co.flipbox.magang.fragment.AddLeaveFragment;
@@ -46,6 +45,7 @@ public class AddActivity extends ActionBarActivity implements AddOvertimeFragmen
             }
             ActionBar actionBar = getSupportActionBar();
             actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setElevation(0);
         }
     }
 
@@ -53,7 +53,8 @@ public class AddActivity extends ActionBarActivity implements AddOvertimeFragmen
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_add, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_add, menu);
         return true;
     }
 
@@ -66,9 +67,9 @@ public class AddActivity extends ActionBarActivity implements AddOvertimeFragmen
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_confirm) {
-            Toast.makeText(this,"CONFIRMED",Toast.LENGTH_SHORT).show();
-            NavUtils.navigateUpFromSameTask(this);
-            return true;
+            //Toast.makeText(this,"CONFIRMED",Toast.LENGTH_SHORT).show();
+            //NavUtils.navigateUpFromSameTask(this);
+            return false;
         }
 
         return super.onOptionsItemSelected(item);

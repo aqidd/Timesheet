@@ -47,6 +47,7 @@ public class AddTsActivity extends ActionBarActivity implements AddOvertimeFragm
             }
             ActionBar actionBar = getSupportActionBar();
             actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setElevation(0);
         }
     }
 

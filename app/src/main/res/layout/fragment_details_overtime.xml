@@ -12,9 +12,9 @@
             android:id="@+id/detailOtDateLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="7dp"
+            android:textSize="12sp"
+            android:textColor="@color/text_disabled"
+            android:layout_marginBottom="10dp"
             android:text="Date"/>
 
         <TextView
@@ -23,7 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/detailOtDateLabel"
             android:textSize="16sp"
-            android:layout_marginBottom="7dp"
+            android:textColor="@color/text_main"
+            android:layout_marginBottom="16dp"
             android:text="January 1 1970"/>
 
         <TextView
@@ -31,9 +32,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/detailOtDateContent"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="7dp"
+            android:textSize="12sp"
+            android:textColor="@color/text_disabled"
+            android:layout_marginBottom="10dp"
             android:text="Duration"/>
 
         <TextView
@@ -42,7 +43,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/detailOtDurationLabel"
             android:textSize="16sp"
-            android:layout_marginBottom="7dp"
+            android:textColor="@color/text_main"
+            android:layout_marginBottom="16dp"
             android:text="09.00 - 17.00 (2h)"/>
 
         <TextView
@@ -50,9 +52,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/detailOtDurationContent"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="7dp"
+            android:textSize="12sp"
+            android:textColor="@color/text_disabled"
+            android:layout_marginBottom="10dp"
             android:text="Status"/>
 
         <TextView
@@ -61,7 +63,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/detailOtStatusLabel"
             android:textSize="16sp"
-            android:layout_marginBottom="17dp"
+            android:textColor="@color/text_main"
+            android:layout_marginBottom="16dp"
             android:text="Pending"/>
 
         <TextView
@@ -69,9 +72,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/detailOtStatusContent"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="7dp"
+            android:textSize="12sp"
+            android:textColor="@color/text_disabled"
+            android:layout_marginBottom="10dp"
             android:text="Description"/>
 
         <TextView
@@ -80,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/detailOtDescLabel"
             android:textSize="16sp"
-            android:layout_marginBottom="7dp"
+            android:textColor="@color/text_main"
             android:text="Abis makan. Tadi pas jam buka puasa entah kenapa perutnya gak bisa makan banyak. Makanya laper lagi ?"/>
     </RelativeLayout>
 

@@ -20,6 +20,7 @@ public class TimesheetDailyActivity extends ActionBarActivity implements Timeshe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Daily Timesheet");
         setContentView(R.layout.activity_timesheet_daily_fragment);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -28,6 +29,7 @@ public class TimesheetDailyActivity extends ActionBarActivity implements Timeshe
         }
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setElevation(0);
     }
 
 

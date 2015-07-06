@@ -13,17 +13,19 @@
             android:id="@+id/addTsDateLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:textSize="12sp"
+            android:textColor="@color/text_disabled"
             android:layout_marginBottom="7dp"
             android:text="Date"/>
 
         <EditText
             android:id="@+id/addTsDateForm"
-            android:text="Default: today"
+            android:hint="@string/select_date"
             android:layout_width="match_parent"
             android:layout_below="@id/addTsDateLabel"
-            android:textSize="14sp"
-            android:layout_marginBottom="7dp"
+            android:textSize="16sp"
+            android:textColor="@color/text_main"
+            android:layout_marginBottom="16dp"
             android:focusable="false"
             android:clickable="true"
             android:layout_height="wrap_content"/>
@@ -32,8 +34,9 @@
             android:id="@+id/addTsProjectLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:layout_marginBottom="4dp"
+            android:textSize="12sp"
+            android:textColor="@color/text_disabled"
+            android:layout_marginBottom="7dp"
             android:layout_below="@id/addTsDateForm"
             android:text="Project"/>
 
@@ -42,16 +45,18 @@
             android:layout_width="match_parent"
             android:layout_below="@id/addTsProjectLabel"
             android:entries="@array/possible_month"
-            android:layout_marginBottom="7dp"
-            android:textSize="14sp"
+            android:layout_marginBottom="16dp"
+            android:textSize="16sp"
+            android:textColor="@color/text_main"
             android:layout_height="wrap_content"></Spinner>
 
         <TextView
             android:id="@+id/addTsStatusLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:layout_marginBottom="4dp"
+            android:textSize="12sp"
+            android:textColor="@color/text_disabled"
+            android:layout_marginBottom="7dp"
             android:layout_below="@id/addTsProjectForm"
             android:text="Status"/>
 
@@ -60,8 +65,9 @@
             android:layout_width="match_parent"
             android:layout_below="@id/addTsStatusLabel"
             android:entries="@array/timesheet_status"
-            android:layout_marginBottom="7dp"
-            android:textSize="14sp"
+            android:layout_marginBottom="16dp"
+            android:textSize="16sp"
+            android:textColor="@color/text_main"
             android:layout_height="wrap_content"></Spinner>
 
         <TextView
@@ -69,7 +75,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/addTsStatusForm"
-            android:textSize="14sp"
+            android:textSize="12sp"
+            android:textColor="@color/text_disabled"
             android:layout_marginBottom="7dp"
             android:text="Description"/>
 
@@ -77,8 +84,10 @@
             android:id="@+id/addTsDescForm"
             android:layout_width="match_parent"
             android:layout_below="@id/addTsDescLabel"
-            android:textSize="14sp"
-            android:layout_marginBottom="7dp"
+            android:hint="@string/add_desc"
+            android:textSize="16sp"
+            android:textColor="@color/text_main"
+            android:layout_marginBottom="16dp"
             android:layout_height="wrap_content"/>
 
         <LinearLayout
@@ -92,7 +101,8 @@
                 android:id="@+id/addTsStartLabel"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:textSize="12sp"
+                android:textColor="@color/text_disabled"
                 android:layout_weight="1"
                 android:layout_marginBottom="7dp"
                 android:text="Start"/>
@@ -101,7 +111,8 @@
                 android:id="@+id/addTsEndLabel"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:textSize="12sp"
+                android:textColor="@color/text_disabled"
                 android:layout_weight="1"
                 android:layout_marginBottom="7dp"
                 android:text="End"/>
@@ -118,9 +129,10 @@
 
             <EditText
                 android:id="@+id/addTsStartForm"
-                android:text="@string/select_time"
+                android:hint="@string/select_time"
                 android:layout_width="fill_parent"
-                android:textSize="14sp"
+                android:textSize="16sp"
+                android:textColor="@color/text_main"
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:focusable="false"
@@ -129,9 +141,10 @@
 
             <EditText
                 android:id="@+id/addTsEndForm"
-                android:text="@string/select_time"
+                android:hint="@string/select_time"
                 android:layout_width="fill_parent"
-                android:textSize="14sp"
+                android:textSize="16sp"
+                android:textColor="@color/text_main"
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:focusable="false"

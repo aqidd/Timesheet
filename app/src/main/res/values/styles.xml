@@ -2,7 +2,33 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/ActionBarNormal</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTab</item>
+        <item name="android:actionBarTabBarStyle">@style/ActionBarSelector</item>
+        <item name="android:actionBarTabTextStyle">@style/ActionBarText</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:textColor">@color/text_main</item>
+        <item name="actionBarStyle">@style/ActionBarNormal</item>
+        <item name="actionBarTabStyle">@style/ActionBarTab</item>
+        <item name="actionBarTabBarStyle">@style/ActionBarSelector</item>
+        <item name="actionBarTabTextStyle">@style/ActionBarText</item>
+        <item name="android:editTextColor">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+    </style>
+    <style name="ActionBarNormal" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/primary400</item>
+        <item name="background">@color/primary400</item>
+    </style>
+    <style name="ActionBarTab" parent="Widget.AppCompat.Light.ActionBar.TabView">
+        <item name="android:background">@color/primary400</item>
+        <item name="background">@color/primary400</item>
+    </style>
+    <style name="ActionBarText" parent="Widget.AppCompat.Light.ActionBar.TabText">
+        <item name="android:textColor">@drawable/tab_text</item>
+    </style>
+    <style name="ActionBarSelector" parent="Widget.AppCompat.Light.ActionBar.TabBar">
+        <item name="android:background">@color/primary400</item>
+        <item name="background">@color/primary400</item>
     </style>
 
 </resources>

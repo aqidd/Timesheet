@@ -50,6 +50,7 @@ public class DetailsTsActivity extends ActionBarActivity implements DetailsLeave
         }
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setElevation(0);
     }
 
 
